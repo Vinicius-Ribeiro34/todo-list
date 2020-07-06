@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
 import Form from './components/formulario/Form';
 import Ordem from './components/formulario/Ordem';
+import Table from './components/tabela/Table';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      autores: [
+          {
+              todo: 'a'
+          },
+          {
+              todo: 'v'
+          }
+      ],
+    };
+  }
 
   render() {
     return (
@@ -13,6 +29,7 @@ class App extends Component {
             <Form />
             <Ordem />
             <div className="divider" />
+            <Table autores={this.state.autores}/>
           </div>
         </div>
       </div>

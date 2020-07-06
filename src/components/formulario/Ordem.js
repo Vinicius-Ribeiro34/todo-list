@@ -8,11 +8,11 @@ export default class Ordem extends Component {
 
   render() {
     return (
-      <form action="#">
+      <form>
         <div className="row">
           <div className="input-field col l5">
-            <label htmlFor="todo">Texto</label>
-            <input type="text" id="todo" />
+            <label htmlFor="ordenar">Texto</label>
+            <input type="text" id="ordenar" />
 
             <div>
               <p className="browser-default">
