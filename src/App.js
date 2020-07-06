@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import Form from './components/formulario/Form';
-import Ordem from './components/formulario/Ordem';
-import Table from './components/tabela/Table';
+import React, { Component } from "react";
+import Form from "./components/formulario/Form";
+import Ordem from "./components/formulario/Ordem";
+import Table from "./components/tabela/Table";
+import LocalStorage from "./utils/LocalStorage";
 
 class App extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      autores: [],
+      todo: [],
     };
+  }
+
+  componentDidMount() {
+    const dados = LocalStorage.receber();
+    this.setState({ todo: dados });
   }
 
   render() {
@@ -22,7 +27,7 @@ class App extends Component {
             <Form />
             <Ordem />
             <div className="divider" />
-            <Table autores={this.state.autores}/>
+            <Table todo={this.state.todo} />
           </div>
         </div>
       </div>

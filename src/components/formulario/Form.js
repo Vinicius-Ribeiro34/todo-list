@@ -8,7 +8,7 @@ export default class Form extends Component {
     super(props);
 
     this.stateInicial = {
-      todo: "",
+      todo: [],
     };
 
     this.state = this.stateInicial;
@@ -21,8 +21,21 @@ export default class Form extends Component {
 
   salvar = (e) => {
     e.preventDefault();
-    var dados = this.state.todo;
-    LocalStorage.salvar(dados);
+    
+    const dados = LocalStorage.receber();
+    const todo = this.state.todo;
+    //verifica se os dados recebidos são nulos
+    if(dados !== null){
+      //se não forem nulos, concatena o valor do input com os dados
+      const resultado = dados.concat(todo);
+      LocalStorage.salvar(resultado);
+    } else {
+      //se nulos salva o valor do inputo no LocalStorage
+      LocalStorage.salvar(todo);
+    }
+    
+    
+    
   }
 
   receber(e) {
@@ -31,14 +44,19 @@ export default class Form extends Component {
     console.log(a);
   }
 
+  remover(e) {
+    e.preventDefault();
+    LocalStorage.remover();
+  }
+
+
   //salva o valor do input no state ao perceber mudança
   handleChange = (event) => {
     const { name, value } = event.target;
 
     this.setState({
-      [name]: value,
+      [name]: [{value}],
     });
-    console.log(this.state.todo);
   };
 
   render() {
@@ -63,9 +81,17 @@ export default class Form extends Component {
               className="btn waves-effect waves-light"
               type="submit"
               name="action"
-              onClick={this.receber}
+              onClick={this.salvar}
             >
               <i className="material-icons">send</i>
+            </button>
+            <button
+              className="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+              onClick={this.remover}
+            >
+              <i className="material-icons">delete</i>
             </button>
           </div>
         </div>

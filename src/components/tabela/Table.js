@@ -15,10 +15,10 @@ const TableHead = () => {
 const TableBody = props => {
 
     //obtendo linhas da tabela com dados do state(mudar para localstorage)
-    const linhas = props.autores.map((linha, index) => {
+    const linhas = (props.todo || []).map((linha, index) => {
         return(
                 <tr key={index}>
-                    <th>{linha.todo}</th>
+                    <th>{linha.value}</th>
                     <th><button className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></th>
                     <th><button className="waves-effect waves-light blue btn" ><i className="material-icons">edit</i></button></th>
                     <th><button className="waves-effect waves-light green btn" ><i className="material-icons">check</i></button></th>
@@ -37,11 +37,11 @@ const TableBody = props => {
 export default class Table extends Component {
 
     render(){
-        const {autores} = this.props;
+        const {todo} = this.props;
         return(
             <table className="highlight">
                 <TableHead />
-                <TableBody autores = {autores} />
+                <TableBody todo = {todo} />
             </table>
         );
     }
