@@ -19,7 +19,7 @@ const TableBody = props => {
         return(
                 <tr key={index}>
                     <th>{linha.value}</th>
-                    <th><button className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></th>
+                    <th><button onClick = { () => { props.removerTodo(linha.value) }} className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></th>
                     <th><button className="waves-effect waves-light blue btn" ><i className="material-icons">edit</i></button></th>
                     <th><button className="waves-effect waves-light green btn" ><i className="material-icons">check</i></button></th>
                 </tr>
@@ -37,11 +37,11 @@ const TableBody = props => {
 export default class Table extends Component {
 
     render(){
-        const {todo} = this.props;
+        const {todo, removerTodo} = this.props;
         return(
             <table className="highlight">
                 <TableHead />
-                <TableBody todo = {todo} />
+                <TableBody todo = {todo} removerTodo={removerTodo}/>
             </table>
         );
     }

@@ -4,7 +4,7 @@ import Ordem from "./components/formulario/Ordem";
 import Table from "./components/tabela/Table";
 import LocalStorage from "./utils/LocalStorage";
 
-class App extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -18,6 +18,29 @@ class App extends Component {
     this.setState({ todo: dados });
   }
 
+  //remove o ToDo escolhido
+  removerTodo = nome => {
+
+    const { todo } = this.state;
+
+    //coloca como undefined o ToDo escolhido
+    const atualizado = todo.map(dados => {
+      if(dados.value !== nome){
+        return dados;
+      } else {
+        return undefined;
+      }
+    });
+
+    //remove os dados undefined
+    const removido = atualizado.filter(dados => {
+      return dados !== undefined;
+    });
+
+    //salva os dados no LocalStorage
+    LocalStorage.salvar(removido);
+  }
+
   render() {
     return (
       <div className="container">
@@ -27,7 +50,7 @@ class App extends Component {
             <Form />
             <Ordem />
             <div className="divider" />
-            <Table todo={this.state.todo} />
+            <Table todo={this.state.todo} removerTodo={this.removerTodo}/>
           </div>
         </div>
       </div>
@@ -35,4 +58,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;

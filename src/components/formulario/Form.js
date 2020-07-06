@@ -22,6 +22,7 @@ export default class Form extends Component {
   salvar = (e) => {
     e.preventDefault();
     
+    //recebe os dados do LocalStorage
     const dados = LocalStorage.receber();
     const todo = this.state.todo;
     //verifica se os dados recebidos são nulos
@@ -30,12 +31,9 @@ export default class Form extends Component {
       const resultado = dados.concat(todo);
       LocalStorage.salvar(resultado);
     } else {
-      //se nulos salva o valor do inputo no LocalStorage
+      //se nulos salva o valor do input no LocalStorage
       LocalStorage.salvar(todo);
     }
-    
-    
-    
   }
 
   receber(e) {

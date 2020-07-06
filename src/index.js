@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Home from './Home';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -9,7 +9,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 ReactDOM.render(
   <React.StrictMode>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-    <App />
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );
