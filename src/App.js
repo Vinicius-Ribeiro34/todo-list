@@ -9,21 +9,14 @@ class App extends Component {
     super(props);
 
     this.state = {
-      autores: [
-          {
-              todo: 'a'
-          },
-          {
-              todo: 'v'
-          }
-      ],
+      autores: [],
     };
   }
 
   render() {
     return (
       <div className="container">
-        <div className="card">
+        <div className="card grey darken-3">
           <div className="card-content">
             <p className="flow-text">Todo List</p>
             <Form />

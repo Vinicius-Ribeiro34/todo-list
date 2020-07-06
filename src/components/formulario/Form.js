@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import M from "materialize-css";
+import LocalStorage from "../../utils/LocalStorage";
 
 export default class Form extends Component {
-
-  
-  componentDidMount() {
-    M.AutoInit();
-  }
 
   constructor(props) {
     super(props);
@@ -18,7 +14,22 @@ export default class Form extends Component {
     this.state = this.stateInicial;
   }
 
+  
+  componentDidMount() {
+    M.AutoInit();
+  }
 
+  salvar = (e) => {
+    e.preventDefault();
+    var dados = this.state.todo;
+    LocalStorage.salvar(dados);
+  }
+
+  receber(e) {
+    e.preventDefault();
+    const a = LocalStorage.receber();
+    console.log(a);
+  }
 
   //salva o valor do input no state ao perceber mudança
   handleChange = (event) => {
@@ -52,6 +63,7 @@ export default class Form extends Component {
               className="btn waves-effect waves-light"
               type="submit"
               name="action"
+              onClick={this.receber}
             >
               <i className="material-icons">send</i>
             </button>
