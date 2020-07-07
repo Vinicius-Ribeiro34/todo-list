@@ -17,7 +17,7 @@ const TableBody = props => {
     //obtendo linhas da tabela com dados do LocalStorage
     const linhas = (props.todo || []).map((linha, index) => {
         return(
-                <tr key={index}>
+                <tr className={linha.concluido ? "concluido" : ""} key={index}>
                     <th>{linha.value}</th>
                     <th><button onClick = { () => { props.removerTodo(linha.value) }} className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></th>
                     <th><button onClick = { () => { props.setarEditar(linha.value) }} data-target="modalEditar" className="waves-effect waves-light blue btn modal-trigger" ><i className="material-icons">edit</i></button></th>

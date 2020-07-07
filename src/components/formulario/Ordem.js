@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import M from "materialize-css";
 
 export default class Ordem extends Component {
+  constructor(props) {
+    super(props);
+
+    this.stateInicial = {
+      texto: [],
+    };
+
+    this.state = this.stateInicial;
+  }
+
   componentDidMount() {
     M.AutoInit();
   }
@@ -10,13 +20,22 @@ export default class Ordem extends Component {
     this.props.ordenar(event.target.value);
   }
 
+  handleChange = (event) => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value,
+    }, this.props.ordenarInput(value));
+  };
+
   render() {
+    const {texto} = this.state;
     return (
       <form>
         <div className="row">
           <div className="input-field col l5">
             <label htmlFor="ordenar">Texto</label>
-            <input type="text" id="ordenar" />
+            <input type="text" id="ordenar" name="texto" value={texto} onChange={this.handleChange} />
 
             <div onChange={this.setGender.bind(this)}>
               <p>

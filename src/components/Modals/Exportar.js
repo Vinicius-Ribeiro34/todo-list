@@ -5,7 +5,7 @@ export default class Editar extends Component {
     super(props);
 
     this.stateInicial = {
-      substituir: [],
+      url: "",
     };
 
     this.state = this.stateInicial;
@@ -23,16 +23,15 @@ export default class Editar extends Component {
     const { valor } = this.state;
 
     return (
-      <div id="modalEditar" className="modal">
+      <div id="modalExportar" className="modal">
         <div className="modal-content">
-        <p className="flow-text">Editar</p>
           <form>
             <div className="input-field">
-              <label htmlFor="editar">Editar</label>
+              <label htmlFor="url">Url</label>
               <input
                 type="text"
-                id="editar"
-                name="substituir"
+                id="url"
+                name="url"
                 value={valor}
                 onChange={this.handleChange}
                 required
@@ -47,7 +46,7 @@ export default class Editar extends Component {
             name="action"
             type="submit"
             onClick={() => {
-              this.props.editar(this.state.substituir);
+              
             }}
           >
             Salvar

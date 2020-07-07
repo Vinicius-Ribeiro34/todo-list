@@ -27,7 +27,7 @@ class Home extends Component {
 
   //remove o ToDo escolhido
   removerTodo = (value) => {
-    const { todo } = this.state;
+    const todo  = LocalStorage.receber();
 
     //filtra os dados removendo os valorer não desejados
     const filtrados = Filtrar.removerSelecionado(todo, value);
@@ -64,7 +64,7 @@ class Home extends Component {
 
   //adiciona o concluido ao ToDo selecionado
   concluir = (value) => {
-    const { todo } = this.state;
+    const  todo  = LocalStorage.receber();
     const filtrado = Filtrar.removerSelecionado(todo, value);
 
     //adiociona o concluido no ToDo escolhido
@@ -108,6 +108,22 @@ class Home extends Component {
       default: break;
     }
   }
+
+  ordenarInput = (texto) => {
+    const {todo} = this.state;
+    //filtra os dados diferentes do texto
+    const filtrados = Filtrar.removerDiferentesInput(todo, texto);
+    //verifica se o texto contem algo
+    if (texto !== ""){
+      this.setState({todo: filtrados});
+    } else {
+      //se não conter, é retornado ao state os dados do LocalStorage
+      const a = LocalStorage.receber();
+      this.setState({todo: a});
+    }
+  }
+
+
   teste = (e) => {
     e.preventDefault();
     console.log(this.state.ordem);
@@ -122,7 +138,7 @@ class Home extends Component {
           <div className="card-content">
             <p className="flow-text">Todo List</p>
             <Form />
-            <Ordem ordenar={this.setarOrdem} verificar={this.verificarOrdem} />
+            <Ordem ordenar={this.setarOrdem} ordenarInput={this.ordenarInput} verificar={this.verificarOrdem} />
             <div className="divider" />
             <Table
               todo={this.state.todo}

@@ -74,6 +74,24 @@ const Filtrar = {
     return removido;
   },
 
+  removerDiferentesInput: (todo, texto) => {
+    //coloca como undefined os dados que não conterem o texto em seu value
+    const atualizado = todo.map((dados) => {
+      if (dados.value.indexOf(texto) > -1) {
+        return dados;
+      } else {
+        return undefined;
+      }
+    });
+
+    //remove os dados undefined
+    const removido = atualizado.filter((dados) => {
+      return dados !== undefined;
+    });
+
+    return removido;
+  },
+
 };
 
 export default Filtrar;
