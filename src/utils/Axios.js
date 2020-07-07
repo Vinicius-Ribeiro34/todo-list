@@ -1,4 +1,5 @@
-import LocalStorage from "../utils/LocalStorage";
+import LocalStorage from "./LocalStorage";
+import PopUp from './PopUp'
 import axios from "axios";
 
 const Axios = {
@@ -7,10 +8,10 @@ const Axios = {
   exportar: (url, dados) => {
     axios.post(url, dados)
       .then((res) => {
-        console.log(res);
+        window.location.reload();
       })
       .catch((error) => {
-        console.log(error);
+        PopUp.exibeMensagem('error', "Erro ao exportar");
       });
   },
 
@@ -24,7 +25,7 @@ const Axios = {
         LocalStorage.salvar(resultado);
       })
       .catch((error) => {
-        console.log(error);
+        PopUp.exibeMensagem('error', "Erro ao importar");
       });
   },
 };
