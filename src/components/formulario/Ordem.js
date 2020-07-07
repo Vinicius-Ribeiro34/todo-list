@@ -6,6 +6,10 @@ export default class Ordem extends Component {
     M.AutoInit();
   }
 
+  setGender = (event) => {
+    this.props.ordenar(event.target.value);
+  }
+
   render() {
     return (
       <form>
@@ -14,22 +18,22 @@ export default class Ordem extends Component {
             <label htmlFor="ordenar">Texto</label>
             <input type="text" id="ordenar" />
 
-            <div>
-              <p className="browser-default">
+            <div onChange={this.setGender.bind(this)}>
+              <p>
                 <label>
-                  <input className="with-gap" name="ordem" type="radio" />
+                  <input className="with-gap" value="all" name="ordem" type="radio" defaultChecked/>
                   <span>Todos</span>
                 </label>
               </p>
               <p>
                 <label>
-                  <input className="with-gap" name="ordem" type="radio" />
+                  <input className="with-gap" value="todo" name="ordem" type="radio" />
                   <span>A fazer</span>
                 </label>
               </p>
               <p>
                 <label>
-                  <input className="with-gap" name="ordem" type="radio" />
+                  <input className="with-gap" value="done" name="ordem" type="radio" />
                   <span>Feito</span>
                 </label>
               </p>
