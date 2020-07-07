@@ -17,7 +17,7 @@ export default class Ordem extends Component {
             <div>
               <p className="browser-default">
                 <label>
-                  <input className="with-gap" name="ordem" type="radio"/>
+                  <input className="with-gap" name="ordem" type="radio" />
                   <span>Todos</span>
                 </label>
               </p>

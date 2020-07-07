@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import M from "materialize-css";
 import LocalStorage from "../../utils/LocalStorage";
 
 export default class Form extends Component {
@@ -12,11 +11,6 @@ export default class Form extends Component {
     };
 
     this.state = this.stateInicial;
-  }
-
-  
-  componentDidMount() {
-    M.AutoInit();
   }
 
   salvar = (e) => {
@@ -34,12 +28,6 @@ export default class Form extends Component {
       //se nulos salva o valor do input no LocalStorage
       LocalStorage.salvar(todo);
     }
-  }
-
-  receber(e) {
-    e.preventDefault();
-    const a = LocalStorage.receber();
-    console.log(a);
   }
 
   remover(e) {

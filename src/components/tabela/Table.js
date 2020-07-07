@@ -20,7 +20,7 @@ const TableBody = props => {
                 <tr key={index}>
                     <th>{linha.value}</th>
                     <th><button onClick = { () => { props.removerTodo(linha.value) }} className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></th>
-                    <th><button className="waves-effect waves-light blue btn" ><i className="material-icons">edit</i></button></th>
+                    <th><button onClick = { ()=> { props.setarEditar(linha.value) }} data-target="modalEditar" className="waves-effect waves-light blue btn modal-trigger" ><i className="material-icons">edit</i></button></th>
                     <th><button className="waves-effect waves-light green btn" ><i className="material-icons">check</i></button></th>
                 </tr>
         );
@@ -37,11 +37,11 @@ const TableBody = props => {
 export default class Table extends Component {
 
     render(){
-        const {todo, removerTodo} = this.props;
+        const {todo, removerTodo, setarEditar} = this.props;
         return(
-            <table className="highlight">
+            <table className="responsive-table highlight">
                 <TableHead />
-                <TableBody todo = {todo} removerTodo={removerTodo}/>
+                <TableBody todo = {todo} removerTodo={removerTodo} setarEditar={setarEditar}/>
             </table>
         );
     }
