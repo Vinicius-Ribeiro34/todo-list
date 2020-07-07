@@ -50,7 +50,9 @@ class Home extends Component {
   //edita o ToDo recuperado no setarEditar
   editar = (value) => {
     //recupa os valores do state
-    const { editar, todo } = this.state;
+    const { editar } = this.state;
+
+    const todo = LocalStorage.receber();
 
     //pega o valor dentro do editar, para colocar no ToDo
     const valor = editar[0].value;
