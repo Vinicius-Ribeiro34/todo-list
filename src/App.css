@@ -44,3 +44,7 @@ body {
 .concluido {
   background-color: green;
 }
+
+.espaco {
+  padding-left: 1em;
+}
