@@ -18,10 +18,10 @@ const TableBody = props => {
     const linhas = (props.todo || []).map((linha, index) => {
         return(
                 <tr className={linha.concluido ? "concluido" : ""} key={index}>
-                    <th>{linha.value}</th>
-                    <th><button onClick = { () => { props.removerTodo(linha.value) }} className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></th>
-                    <th><button onClick = { () => { props.setarEditar(linha.value) }} data-target="modalEditar" className="waves-effect waves-light blue btn modal-trigger" ><i className="material-icons">edit</i></button></th>
-                    <th><button onClick = { () => { props.concluir(linha.value)}} className="waves-effect waves-light green btn" ><i className="material-icons">check</i></button></th>
+                    <td>{linha.value}</td>
+                    <td><button onClick = { () => { props.removerTodo(linha.value) }} className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></td>
+                    <td><button onClick = { () => { props.setarEditar(linha.value) }} data-target="modalEditar" className="waves-effect waves-light blue btn modal-trigger" ><i className="material-icons">edit</i></button></td>
+                    {linha.concluido ? <td><i className="material-icons">playlist_add_check</i></td> : <td><button onClick = { () => { props.concluir(linha.value)}} className="waves-effect waves-light green btn" ><i className="material-icons">check</i></button></td>}
                 </tr>
         );
     });

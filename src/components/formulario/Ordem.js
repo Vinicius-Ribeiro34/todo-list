@@ -32,11 +32,11 @@ export default class Ordem extends Component {
     const {texto} = this.state;
     return (
       <form>
+        <p className="flow-text">Ordem</p>
         <div className="row">
-          <div className="input-field col l5">
+          <div className="input-field col s5">
             <label htmlFor="ordenar">Texto</label>
             <input type="text" id="ordenar" name="texto" value={texto} onChange={this.handleChange} />
-
             <div onChange={this.setGender.bind(this)}>
               <p>
                 <label>

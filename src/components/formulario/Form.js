@@ -30,12 +30,6 @@ export default class Form extends Component {
     }
   }
 
-  remover(e) {
-    e.preventDefault();
-    LocalStorage.remover();
-  }
-
-
   //salva o valor do input no state ao perceber mudança
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -70,14 +64,6 @@ export default class Form extends Component {
               onClick={this.salvar}
             >
               <i className="material-icons">send</i>
-            </button>
-            <button
-              className="btn waves-effect waves-light"
-              type="submit"
-              name="action"
-              onClick={this.remover}
-            >
-              <i className="material-icons">delete</i>
             </button>
           </div>
         </div>
