@@ -17,7 +17,7 @@ const TableBody = props => {
     //obtendo linhas da tabela com dados do LocalStorage
     const linhas = (props.todo || []).map((linha, index) => {
         return(
-                <tr className={linha.concluido ? "concluido" : ""} key={index}>
+                <tr className={linha.concluido ? "concluido teste" : "teste"} key={index}>
                     <td>{linha.value}</td>
                     <td><button onClick = { () => { props.removerTodo(linha.value) }} className="waves-effect waves-light red btn" ><i className="material-icons">delete</i></button></td>
                     <td><button onClick = { () => { props.setarEditar(linha.value) }} data-target="modalEditar" className="waves-effect waves-light blue btn modal-trigger" ><i className="material-icons">edit</i></button></td>
@@ -39,7 +39,7 @@ export default class Table extends Component {
     render(){
         const {todo, removerTodo, setarEditar, concluir} = this.props;
         return(
-            <table className="responsive-table highlight">
+            <table className="responsive-table">
                 <TableHead />
                 <TableBody todo = {todo} removerTodo={removerTodo} setarEditar={setarEditar} concluir={concluir}/>
             </table>

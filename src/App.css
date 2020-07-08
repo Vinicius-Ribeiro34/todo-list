@@ -44,3 +44,8 @@ body {
 .concluido {
   background-color: #b2ff59;
 }
+
+tr:hover {
+  background-color: #bdbdbd;
+  transition: background-color 0.4s;
+}
