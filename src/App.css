@@ -1,5 +1,5 @@
 body {
-  background-color: #212121;
+  background-color: #4db6ac;
 }
 
 .App {
@@ -42,9 +42,5 @@ body {
 }
 
 .concluido {
-  background-color: green;
-}
-
-.espaco {
-  padding-left: 1em;
+  background-color: #b2ff59;
 }

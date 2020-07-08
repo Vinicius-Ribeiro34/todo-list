@@ -147,7 +147,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <div className="card grey darken-3">
+        <div className="card grey lighten-3">
           <div className="card-content">
             <p className="flow-text">Todo List</p>
             <Form />
